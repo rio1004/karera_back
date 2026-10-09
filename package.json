@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "node esbuild.mjs",
-    "serve": "drizzle-kit migrate && node .",
-    "docker:local": "npm i && drizzle-kit migrate && npm run seed:initial-data && nodemon --exec tsx src/main.ts",
+    "serve": "node .",
     "seed-game-simulation": "npx tsx seeders/seed-game-simulation.ts",
     "k6-create-users": "npx tsx seeders/create-users.ts",
     "generate-tokens-csv": "npx tsx seeders/generate-tokens-csv.ts",
@@ -26,10 +25,14 @@
     "seed:transaction-report": "npx tsx seeders/transaction-report-seeder.ts",
     "import:banned-players": "npx tsx seeders/upload-banned-players.ts",
     "recreate-db": "ts-node recreateDb.ts",
-    "seed:studios": "ts-node seeders/seed-studios.ts",
+    "seed:studios": "tsx seeders/seed-studios.ts",
     "seed:initial-data": "npm run seed:test-game-and-users && npm run seed:studios && npm run create-game-session",
     "seed:chat-session-types": "ts-node seeders/chat-session-types.ts",
-    "seed:player-transactions": "ts-node seeders/player-transactions.ts"
+    "seed:player-transactions": "ts-node seeders/player-transactions.ts",
+    "dev": "nodemon",
+    "start": "tsx src/main.ts",
+    "db:migrate": "drizzle-kit migrate",
+    "db:setup": "npm run db:migrate && npm run seed:initial-data"
   },
   "dependencies": {
     "@fastify/cookie": "^9.1.0",
@@ -51,6 +54,7 @@
     "moment": "^2.30.1",
     "pg": "^8.16.3",
     "qrcode": "^1.5.4",
+    "redis": "^6.3.0",
     "uuid": "^11.1.0",
     "ws": "^8.18.3",
     "xlsx": "^0.18.5"

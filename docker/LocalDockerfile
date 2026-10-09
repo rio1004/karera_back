@@ -3,4 +3,4 @@ FROM node:22
 WORKDIR /app
 HEALTHCHECK --interval=5s --timeout=5s --retries=3 CMD wget --spider -q http://127.0.0.1:8000/health || exit 1
 
-CMD ["npm", "run", "docker:local"]
+CMD ["npm", "run", "dev"]

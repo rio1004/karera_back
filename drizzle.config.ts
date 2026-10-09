@@ -1,9 +1,11 @@
 import fs from "fs";
 import type { Config } from 'drizzle-kit';
 import * as dotenv from 'dotenv';
-dotenv.config({ path: '.env.test' });
+dotenv.config();
 
-const caCert = fs.readFileSync("rds-ca.pem").toString();
+const caCert = process.env.DATABASE_SSL === "true"
+  ? fs.readFileSync("rds-ca.pem", "utf8")
+  : undefined;
 
 export default {
   schema: './src/db/schema.ts',

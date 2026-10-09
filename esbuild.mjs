@@ -12,8 +12,5 @@ esbuild
     sourcemap: true,
     plugins: [external],
     lineLimit: 120,
-    define: {
-      "process.env.DATABASE_SSL": JSON.stringify("true"),
-    },
   })
   .catch(() => process.exit(1))

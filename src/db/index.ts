@@ -5,7 +5,9 @@ import * as schema from './schema.ts'; // Import all schema definitions
 import dotenv from 'dotenv';
 dotenv.config();
 
-const caCert = fs.readFileSync("rds-ca.pem").toString();
+const caCert = process.env.DATABASE_SSL === "true"
+  ? fs.readFileSync("rds-ca.pem", "utf8")
+  : undefined;
 
 const pool = new Pool({
     host: process.env.DATABASE_HOST,
