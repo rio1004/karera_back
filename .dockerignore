@@ -1,0 +1,12 @@
+dist
+docker
+node_modules
+.env
+postman_collection
+seeders
+tests
+.env
+.env.*
+nodemon.json
+recreateDb.ts
+vitest.config.ts

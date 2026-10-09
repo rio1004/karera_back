@@ -1,0 +1,16 @@
+/node_modules
+/dist
+/build
+/coverage
+/logs
+/tmp
+/temp
+/tests/__snapshots__
+/tests/__tests__
+/tests/__mocks__
+/tests/__fixtures__
+/uploads/ekyc
+.env
+/.project
+/venv
+*.xlsx#

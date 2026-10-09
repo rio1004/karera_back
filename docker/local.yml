@@ -1,0 +1,46 @@
+name: aggregator
+services:
+  aggregator_backend:
+    build:
+      context: ../
+      dockerfile: docker/LocalDockerfile
+    depends_on:
+      aggregator_db:
+        condition: service_healthy
+    ports:
+      - 8000:8000
+    networks:
+      - aggregator_network
+    volumes:
+      - ../:/app
+    environment:
+      - TZ=Asia/Manila
+
+  aggregator_db:
+    image: postgres:latest
+    restart: always
+    user: postgres # must be same with env.DATABASE_USER
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=postgres # must be same with env.DATABASE_PASS
+      - POSTGRES_DB=karera # must be same with env.DATABASE_NAME
+      - TZ=Asia/Manila
+      - PGTZ=Asia/Manila
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "karera"]
+      interval: 5s
+      timeout: 30s
+      retries: 5
+    networks:
+      - aggregator_network
+
+  aggregator_redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    command: redis-server --appendonly yes
+    networks:
+      - aggregator_network
+    environment:
+      - TZ=Asia/Manila

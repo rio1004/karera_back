@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"target": "es2022",
+		"module": "Node16",
+		"moduleResolution": "Node16",
+		"allowImportingTsExtensions": true,
+		"resolveJsonModule": true,
+		"allowJs": true,
+		"outDir": "./dist",
+		"noEmit": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true,
+
+		"strict": false,
+	},
+	// "include": ["src/**/*"],
+  "exclude": ["node_modules", "testfiles"]
+}

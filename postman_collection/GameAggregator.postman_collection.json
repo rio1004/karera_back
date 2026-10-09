@@ -1,0 +1,2102 @@
+{
+	"info": {
+		"_postman_id": "0597c33d-b39d-4abd-bbde-03f89afedfd9",
+		"name": "GameAggregator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47485203"
+	},
+	"item": [
+		{
+			"name": "Wallet",
+			"item": [
+				{
+					"name": "Update Wallet",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{loginToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wallet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Wallet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{loginToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"initialBalance\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wallet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Wallet",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{loginToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wallet/2f552912-2bd8-402e-9004-d613de6047b5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallet",
+								"2f552912-2bd8-402e-9004-d613de6047b5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Wallet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{loginToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/wallet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Withdrawal",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{loginToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"c8ddae47-3f98-46a6-b97d-0193747d82a6\",\n    \"amount\": 10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/withdraw",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"withdraw"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deposit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{loginToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"c8ddae47-3f98-46a6-b97d-0193747d82a6\",\n    \"amount\": 10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/deposit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"deposit"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Balance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{loginToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/balance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"balance"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Create Transaction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{loginToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"receiverId\": \"69686077936\",\r\n    \"receiverType\": \"mobile\",\r\n    \"type\": \"deposit\",\r\n    \"amount\": 20000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/transaction",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Transaction",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{loginToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/transaction",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Transaction",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{loginToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"completed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/transaction/9",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transaction",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Transaction",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{loginToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/transaction/8",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transaction",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Game",
+			"item": [
+				{
+					"name": "Create Game Session",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Id of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-ibm-client-secret",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Secret of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-partner-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Sample partner account ID provided in  [Sample Credentials](https://developer.unionbankph.com/reference#tag/SampleCredentials)"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{loginToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"gameId\": \"6838fa68-fee0-498c-890e-7fea04447ea0\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/game/session",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"game",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Id of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-ibm-client-secret",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Secret of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-partner-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Sample partner account ID provided in  [Sample Credentials](https://developer.unionbankph.com/reference#tag/SampleCredentials)"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{loginToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sessionId\": \"f4a1dd2c-579b-4959-a64b-411678dc70d2\",\r\n  \"amount\": 2000\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/bet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Game",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Id of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-ibm-client-secret",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Secret of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-partner-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Sample partner account ID provided in  [Sample Credentials](https://developer.unionbankph.com/reference#tag/SampleCredentials)"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{loginToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\":\"Dos Letra\"  \r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/game",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"game"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Win",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Id of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-ibm-client-secret",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Secret of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-partner-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Sample partner account ID provided in  [Sample Credentials](https://developer.unionbankph.com/reference#tag/SampleCredentials)"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{loginToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sessionId\": \"f4a1dd2c-579b-4959-a64b-411678dc70d2\",\r\n  \"amount\": 10000\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/win",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"win"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bets",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{loginToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sessionId\": \"Dos Letra 3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/bet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bet"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Game Simulation",
+			"item": [
+				{
+					"name": "Create Wallet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{loginToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"initialBalance\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wallet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Balance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{loginToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/balance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"balance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Withdrawal",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{player1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"c8ddae47-3f98-46a6-b97d-0193747d82a6\",\n    \"amount\": 10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/withdraw",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"withdraw"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deposit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{player1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"2ffed622-44ab-4b60-a5eb-1f0ba9d01638\",\n    \"amount\": 10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/deposit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"deposit"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Game",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{loginToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Id of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-ibm-client-secret",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Secret of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-partner-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Sample partner account ID provided in  [Sample Credentials](https://developer.unionbankph.com/reference#tag/SampleCredentials)"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\":\"Dos Letra\",\r\n  \"choices\": [\r\n    \"A\", \"B\"\r\n  ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/game",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"game"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Games",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{gm}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sessionId\": \"Dos Letra 3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/game",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"game"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Game Session",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{moderator}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Id of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-ibm-client-secret",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Secret of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-partner-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Sample partner account ID provided in  [Sample Credentials](https://developer.unionbankph.com/reference#tag/SampleCredentials)"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"gameId\": \"b909e2ab-a613-48fc-aa7e-7819f28da85d\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/game/session",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"game",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Transaction",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{loginToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/transaction",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{loginToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Id of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-ibm-client-secret",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Secret of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-partner-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Sample partner account ID provided in  [Sample Credentials](https://developer.unionbankph.com/reference#tag/SampleCredentials)"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sessionId\": \"5ccc2647-db21-4500-a827-e1d2d7535dc0\",\r\n  \"choice\": \"A\",\r\n  \"amount\": 2500\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/bet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Win",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{moderator}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Id of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-ibm-client-secret",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Client Secret of the application in the UnionBank Developer Portal"
+							},
+							{
+								"key": "x-partner-id",
+								"value": "aliqua Ut dolore cillum in",
+								"description": "(Required) Sample partner account ID provided in  [Sample Credentials](https://developer.unionbankph.com/reference#tag/SampleCredentials)"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sessionId\": \"93b90e27-509a-4e62-99f7-e2f1dbd5cd67\",\r\n  \"userId\": \"3ef2bea5-3ba9-43e4-b9f3-c6a1b0a040cd\",\r\n  \"amount\": 8000\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/win",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"win"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ticket",
+			"item": [
+				{
+					"name": "Create Ticket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sessionId\": \"1fe377d3-6552-455e-9786-521fa321ca4a\",\r\n  \"gameId\": \"d714b50b-4f53-4491-93f0-53b7014e7cc0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ticket",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ticket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Ticket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ticket/SBT-8182565446",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ticket",
+								"SBT-8182565446"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Leader Board",
+			"item": [
+				{
+					"name": "Get Leader Board",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attendance",
+			"item": []
+		},
+		{
+			"name": "Kairos eKYC",
+			"item": [
+				{
+					"name": "Liveness Verification",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpZCI6IjliMGY0MDcyLTVmMzgtNDlkZi05NmMwLTE3NjU4MGZkMThmYiIsInVzZXJOYW1lIjoibG9naW51c2VybmFtZTIiLCJlbWFpbCI6ImxvZ2ludXNlcm5hbWUyQGdsb2JhbHguY29tLnBoIiwiZmlyc3ROYW1lIjoiTG9naW51c2VyMiIsImxhc3ROYW1lIjoiTGFzdG5hbWUyIiwibW9iaWxlIjoiMTIzNDU2Nzg5MDEiLCJ0eXBlIjoibW9kZXJhdG9yIiwiaWF0IjoxNzU2Njg4NDM4LCJleHAiOjE3NTY3NzQ4Mzh9.CEW0-kv-Mr0MOosIoVXRzB8oqcYRSD4jqS24B0R5dd_2fwTml9PU__rAnXFiAwXbwUHl5RJ0I2YaauDFvL9YAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "selfie",
+									"type": "file",
+									"src": "postman-cloud:///1f086cfe-3874-4250-9356-d17899611293"
+								},
+								{
+									"key": "threshold",
+									"value": "0.7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ekyc/1a22f60a-3573-4d9a-bc5a-d7aef5dd874c/liveness",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ekyc",
+								"1a22f60a-3573-4d9a-bc5a-d7aef5dd874c",
+								"liveness"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liveness Verification Status Request",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYxNDA4ZDNlLTI4NDItNDkwNy1hYzhmLTdkNGZkZGIxMDM4MSIsInVzZXJOYW1lIjoibG9naW51c2VybmFtZTQiLCJlbWFpbCI6ImxvZ2ludXNlcm5hbWU0QGdsb2JhbHguY29tLnBoIiwiZmlyc3ROYW1lIjoiTG9naW51c2VyNCIsImxhc3ROYW1lIjoiTGFzdG5hbWU0IiwibW9iaWxlIjoiMTIzNDU2Nzg5MDEiLCJ0eXBlIjoibW9kZXJhdG9yIiwiaWF0IjoxNzU2ODY0MjY1LCJleHAiOjE3NTY5NTA2NjV9.KcqDMylHOqQs-H_URbK_7yMeZ3_iu3gGW4Y1lj1vEMNkBQj6im2tYS7SU0g7texyTzuxT6yyVdE5AxHzXI8aCg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"f1408d3e-2842-4907-ac8f-7d4fddb10381\",\n    \"ekycStatus\": \"PENDING\",\n    \"ekycTransactionId\": \"txn_123\",\n    \"birthPlace\": \"Manila\",\n    \"birthDate\": \"1990-01-01\",\n    \"age\": \"34\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ekyc/e2db2069-6d06-463b-84c5-e43c846075fc/liveness-verification",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ekyc",
+								"e2db2069-6d06-463b-84c5-e43c846075fc",
+								"liveness-verification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ID Document Verification",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA0OGU4ODRjLWU0MDgtNGM4Zi1iMDY0LTk4NTA5MmU1NTdkMSIsInVzZXJOYW1lIjoibG9naW51c2VybmFtZTUiLCJlbWFpbCI6ImxvZ2ludXNlcm5hbWU1QGdsb2JhbHguY29tLnBoIiwiZmlyc3ROYW1lIjoiTG9naW51c2VyNSIsImxhc3ROYW1lIjoiTGFzdG5hbWU1IiwibW9iaWxlIjoiMTIzNDU2Nzg5MDEiLCJ0eXBlIjoibW9kZXJhdG9yIiwiaWF0IjoxNzU2ODcxOTIxLCJleHAiOjE3NTY5NTgzMjF9.k73AU4034cgmP9BF91rwq6otVrdzrJZj4jJEUh7ky3-_4xitmT9NkIdzNICbC5tRnpCn88C_k5wHdMddObLcCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "app_id",
+								"value": "53371ee9",
+								"type": "text"
+							},
+							{
+								"key": "app_key",
+								"value": "8471781d737ec0492b88bc3eb2169360",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "document",
+									"type": "file",
+									"src": "postman-cloud:///1f087a80-ed60-4d50-963c-18b5703ba4a9"
+								},
+								{
+									"key": "document_back",
+									"type": "file",
+									"src": "postman-cloud:///1f087a80-f820-44c0-bf8d-97fe3d17f6cd"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ekyc/5a7faa56-8b24-4060-ba5b-1ff66b8abeb8/document-verification",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ekyc",
+								"5a7faa56-8b24-4060-ba5b-1ff66b8abeb8",
+								"document-verification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ID Document Verification Status Request",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "app_id",
+								"value": "53371ee9",
+								"type": "text"
+							},
+							{
+								"key": "app_key",
+								"value": "8471781d737ec0492b88bc3eb2169360",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://idv-eu.kairos.com/v0.1/document-verification/975e0740-40f7-4462-b221-e7770c3686eb",
+							"protocol": "https",
+							"host": [
+								"idv-eu",
+								"kairos",
+								"com"
+							],
+							"path": [
+								"v0.1",
+								"document-verification",
+								"975e0740-40f7-4462-b221-e7770c3686eb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Full Id Verification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "app_id",
+								"value": "53371ee9",
+								"type": "text"
+							},
+							{
+								"key": "app_key",
+								"value": "8471781d737ec0492b88bc3eb2169360",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "selfie",
+									"type": "file",
+									"src": "postman-cloud:///1f086df6-b47e-4c30-9e96-1546ba13b34e"
+								},
+								{
+									"key": "document",
+									"type": "file",
+									"src": "postman-cloud:///1f087a80-ed60-4d50-963c-18b5703ba4a9"
+								},
+								{
+									"key": "document_back",
+									"type": "file",
+									"src": "postman-cloud:///1f087a80-f820-44c0-bf8d-97fe3d17f6cd"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://idv-eu.kairos.com/v0.1/full-id-verification",
+							"protocol": "https",
+							"host": [
+								"idv-eu",
+								"kairos",
+								"com"
+							],
+							"path": [
+								"v0.1",
+								"full-id-verification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Full Id Verification Status Request",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "app_id",
+								"value": "53371ee9",
+								"type": "text"
+							},
+							{
+								"key": "app_key",
+								"value": "8471781d737ec0492b88bc3eb2169360",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://idv-eu.kairos.com/v0.1/full-id-verification/76defa81-33bd-4fc7-8e9c-11377816718a",
+							"protocol": "https",
+							"host": [
+								"idv-eu",
+								"kairos",
+								"com"
+							],
+							"path": [
+								"v0.1",
+								"full-id-verification",
+								"76defa81-33bd-4fc7-8e9c-11377816718a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Biometric Verification",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA0OGU4ODRjLWU0MDgtNGM4Zi1iMDY0LTk4NTA5MmU1NTdkMSIsInVzZXJOYW1lIjoibG9naW51c2VybmFtZTUiLCJlbWFpbCI6ImxvZ2ludXNlcm5hbWU1QGdsb2JhbHguY29tLnBoIiwiZmlyc3ROYW1lIjoiTG9naW51c2VyNSIsImxhc3ROYW1lIjoiTGFzdG5hbWU1IiwibW9iaWxlIjoiMTIzNDU2Nzg5MDEiLCJ0eXBlIjoibW9kZXJhdG9yIiwiaWF0IjoxNzU2ODcxOTIxLCJleHAiOjE3NTY5NTgzMjF9.k73AU4034cgmP9BF91rwq6otVrdzrJZj4jJEUh7ky3-_4xitmT9NkIdzNICbC5tRnpCn88C_k5wHdMddObLcCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "app_id",
+								"value": "53371ee9",
+								"type": "text"
+							},
+							{
+								"key": "app_key",
+								"value": "8471781d737ec0492b88bc3eb2169360",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "selfie",
+									"type": "file",
+									"src": "postman-cloud:///1f086dfc-1f67-4970-9d2e-3f9c5bccfdb1"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "postman-cloud:///1f086df6-b47e-4c30-9e96-1546ba13b34e"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ekyc/5a7faa56-8b24-4060-ba5b-1ff66b8abeb8/biometric-verification",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ekyc",
+								"5a7faa56-8b24-4060-ba5b-1ff66b8abeb8",
+								"biometric-verification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Biometric Verification Status Request",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA0OGU4ODRjLWU0MDgtNGM4Zi1iMDY0LTk4NTA5MmU1NTdkMSIsInVzZXJOYW1lIjoibG9naW51c2VybmFtZTUiLCJlbWFpbCI6ImxvZ2ludXNlcm5hbWU1QGdsb2JhbHguY29tLnBoIiwiZmlyc3ROYW1lIjoiTG9naW51c2VyNSIsImxhc3ROYW1lIjoiTGFzdG5hbWU1IiwibW9iaWxlIjoiMTIzNDU2Nzg5MDEiLCJ0eXBlIjoibW9kZXJhdG9yIiwiaWF0IjoxNzU2ODcxOTIxLCJleHAiOjE3NTY5NTgzMjF9.k73AU4034cgmP9BF91rwq6otVrdzrJZj4jJEUh7ky3-_4xitmT9NkIdzNICbC5tRnpCn88C_k5wHdMddObLcCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"048e884c-e408-4c8f-b064-985092e557d1\",\n    \"ekycStatus\": \"PENDING\",\n    \"ekycTransactionId\": \"txn_123\",\n    \"birthPlace\": \"Manila\",\n    \"birthDate\": \"1990-01-01\",\n    \"age\": \"34\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ekyc/5a7faa56-8b24-4060-ba5b-1ff66b8abeb8/biometric-verification",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ekyc",
+								"5a7faa56-8b24-4060-ba5b-1ff66b8abeb8",
+								"biometric-verification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateEkyc",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NmI0YzkxLTYxMGYtNDlhNC04N2M1LTUxNTFjY2JiOTU1MiIsInVzZXJOYW1lIjoicGxheWVyMSIsImVtYWlsIjoidXNlckBleGFtcGxlLmNvbSIsImZpcnN0TmFtZSI6InRlc3QiLCJsYXN0TmFtZSI6InRlc3QiLCJtb2JpbGUiOiIwOTE5ODgyNzY3NiIsInR5cGUiOiJwbGF5ZXIiLCJpYXQiOjE3NTczMDk4NzQsImV4cCI6MTc1NzM5NjI3NH0.QZXRkR49eq26A8QHfijse3mtVr1lMUIOuJVch0cXUDFcCLvrRueRtFHjwyWWAJkmYGMrQ4Bk_R_ldOq9YL_rCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"73ead69c-8984-4ca6-96f9-abb17ec80f88\",\n    \"status\": \"NEW\",\n    \"birthPlace\": \"Manila\",\n    \"birthDate\": \"1990-01-01\",\n    \"age\": \"34\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ekyc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ekyc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllekyc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ekyc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ekyc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetEkycById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyODIxZmViLWMwNjktNDgyMC05MGNhLTczYzhmN2RmMjM5YyIsInVzZXJOYW1lIjoibG9naW51c2VybmFtZTUiLCJlbWFpbCI6ImxvZ2ludXNlcm5hbWU1QGdsb2JhbHguY29tLnBoIiwiZmlyc3ROYW1lIjoiTG9naW51c2VyNSIsImxhc3ROYW1lIjoiTGFzdG5hbWU1IiwibW9iaWxlIjoiMTIzNDU2Nzg5MDEiLCJ0eXBlIjoibW9kZXJhdG9yIiwiaWF0IjoxNzU2Njg3MTE5LCJleHAiOjE3NTY3NzM1MTl9.W9_i_TcGDJMGk4uzcIbFhGZ_oxj17J3_ammDwuGfuIn-44kU6RTBtar8ZRk4vxiopqdJqfg_SQLr-gQL7TbmDw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"02821feb-c069-4820-90ca-73c8f7df239c\",\n    \"ekycStatus\": \"PENDING\",\n    \"ekycTransactionId\": \"txn_123\",\n    \"birthPlace\": \"Manila\",\n    \"birthDate\": \"1990-01-01\",\n    \"age\": \"34\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ekyc/198054ae-e847-4ea8-a094-dbd4e74d8e86",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ekyc",
+								"198054ae-e847-4ea8-a094-dbd4e74d8e86"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteEkyc",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyODIxZmViLWMwNjktNDgyMC05MGNhLTczYzhmN2RmMjM5YyIsInVzZXJOYW1lIjoibG9naW51c2VybmFtZTUiLCJlbWFpbCI6ImxvZ2ludXNlcm5hbWU1QGdsb2JhbHguY29tLnBoIiwiZmlyc3ROYW1lIjoiTG9naW51c2VyNSIsImxhc3ROYW1lIjoiTGFzdG5hbWU1IiwibW9iaWxlIjoiMTIzNDU2Nzg5MDEiLCJ0eXBlIjoibW9kZXJhdG9yIiwiaWF0IjoxNzU2Njg3MTE5LCJleHAiOjE3NTY3NzM1MTl9.W9_i_TcGDJMGk4uzcIbFhGZ_oxj17J3_ammDwuGfuIn-44kU6RTBtar8ZRk4vxiopqdJqfg_SQLr-gQL7TbmDw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"02821feb-c069-4820-90ca-73c8f7df239c\",\n    \"ekycStatus\": \"PENDING\",\n    \"ekycTransactionId\": \"txn_123\",\n    \"birthPlace\": \"Manila\",\n    \"birthDate\": \"1990-01-01\",\n    \"age\": \"34\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ekyc/198054ae-e847-4ea8-a094-dbd4e74d8e86",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ekyc",
+								"198054ae-e847-4ea8-a094-dbd4e74d8e86"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Selfie",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyNTY1ODhhLWVkZGQtNDc0Yi1iMmViLTg2OTdhZTMxNTEyOCIsInVzZXJOYW1lIjoibG9naW51c2VybmFtZTIiLCJlbWFpbCI6ImxvZ2ludXNlcm5hbWUyQGdsb2JhbHguY29tLnBoIiwiZmlyc3ROYW1lIjoiTG9naW51c2VyMiIsImxhc3ROYW1lIjoiTGFzdG5hbWUyIiwibW9iaWxlIjoiMTIzNDU2Nzg5MDEiLCJ0eXBlIjoibW9kZXJhdG9yIiwiaWF0IjoxNzU3MDQ2MjExLCJleHAiOjE3NTcxMzI2MTF9.BlH5Coa9Spd_hlS_PFdMPgUPxQBL9iaMEF9Zdcw7Uvhd-SiZYNaBvQQl1XiIlW6MHAO0y6BSNsvTNGTZMvHECg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "selfie",
+									"type": "file",
+									"src": "postman-cloud:///1f086df6-b47e-4c30-9e96-1546ba13b34e"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ekyc/7fe8ce1d-1111-462f-a1f3-6c146842a0a5/liveness",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ekyc",
+								"7fe8ce1d-1111-462f-a1f3-6c146842a0a5",
+								"liveness"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyNTY1ODhhLWVkZGQtNDc0Yi1iMmViLTg2OTdhZTMxNTEyOCIsInVzZXJOYW1lIjoibG9naW51c2VybmFtZTIiLCJlbWFpbCI6ImxvZ2ludXNlcm5hbWUyQGdsb2JhbHguY29tLnBoIiwiZmlyc3ROYW1lIjoiTG9naW51c2VyMiIsImxhc3ROYW1lIjoiTGFzdG5hbWUyIiwibW9iaWxlIjoiMTIzNDU2Nzg5MDEiLCJ0eXBlIjoibW9kZXJhdG9yIiwiaWF0IjoxNzU3MDQ2MjExLCJleHAiOjE3NTcxMzI2MTF9.BlH5Coa9Spd_hlS_PFdMPgUPxQBL9iaMEF9Zdcw7Uvhd-SiZYNaBvQQl1XiIlW6MHAO0y6BSNsvTNGTZMvHECg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "documentFront",
+									"type": "file",
+									"src": "postman-cloud:///1f087a80-ed60-4d50-963c-18b5703ba4a9"
+								},
+								{
+									"key": "documentBack",
+									"type": "file",
+									"src": "postman-cloud:///1f087a80-f820-44c0-bf8d-97fe3d17f6cd"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ekyc/7fe8ce1d-1111-462f-a1f3-6c146842a0a5/id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ekyc",
+								"7fe8ce1d-1111-462f-a1f3-6c146842a0a5",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PatchEkyc",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3OTg2NTY2LWUxNDktNDgyNi1hNzc2LTI3NTk1MjNlNTA5MyIsInVzZXJOYW1lIjoicGxheWVyNiIsImVtYWlsIjoidXNlcjZAZXhhbXBsZS5jb20iLCJmaXJzdE5hbWUiOiJ0ZXN0NiIsImxhc3ROYW1lIjoidGVzdDYiLCJtb2JpbGUiOiIwOTQ0ODU3Nzg3NCIsInR5cGUiOiJwbGF5ZXIiLCJpYXQiOjE3NTczODc0NTUsImV4cCI6MTc1NzQ3Mzg1NX0.Re81FZ3x3BT1acPHW4-fKhRpfi07HPgdncWQfc5NzAhuTaY4vmTJ8BLcPehIZELWhfBNRiUnD_SBPDzzzmJyBA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"VERIFIED\",\n    \"birthDate\": \"1998-01-01\",\n    \"age\": \"27\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ekyc/0ae2e7d8-1238-480d-abe4-bf1be5bf411c",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ekyc",
+								"0ae2e7d8-1238-480d-abe4-bf1be5bf411c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PatchStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiNDlmNDM3LWVmNjMtNGViYS04YzA1LTc5MWQ1ZGU3N2MwNyIsInVzZXJOYW1lIjoicGxheWVyIiwiZW1haWwiOiJ1c2VyM0BleGFtcGxlLmNvbSIsImZpcnN0TmFtZSI6InRlc3QzIiwibGFzdE5hbWUiOiJ0ZXN0MyIsIm1vYmlsZSI6IjA5NDM4NTk3ODc0IiwidHlwZSI6InBsYXllciIsImlhdCI6MTc1NzM4ODY0OSwiZXhwIjoxNzU3NDc1MDQ5fQ.9DJ4IcvyhQ7vYScKvx3uO1emkpJkCGhWrhYbPi4YDBSNngoyrf0mdHV8qZWlfJJJRx2ky6C4sTGprn16BONnAg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"PENDING\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ekyc/1c00b804-9756-4967-82be-037956244e7e/status",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ekyc",
+								"1c00b804-9756-4967-82be-037956244e7e",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Generate random user registration data\r",
+							"const randomSuffix = Math.floor(Math.random() * 10000); \r",
+							"\r",
+							"// Construct user data object\r",
+							"const userData = {\r",
+							"    \"firstName\": `Test${randomSuffix}`,\r",
+							"    \"lastName\": `LoginUser${randomSuffix}`,\r",
+							"    \"userName\": `loginuser${randomSuffix}`,\r",
+							"    \"email\": `loginuser${randomSuffix}@example.com`,\r",
+							"    \"mobile\": Math.floor(10000000000 + Math.random() * 90000000000).toString().slice(0, 11), // 11-digit number\r",
+							"    \"type\": 'moderator',\r",
+							"    \"password\": 'password123'\r",
+							"};\r",
+							"\r",
+							"pm.collectionVariables.set('regdata', JSON.stringify(userData));\r",
+							"\r",
+							"pm.collectionVariables.set('registerUser', userData.userName);\r",
+							"pm.collectionVariables.set('registerPass', userData.password);\r",
+							" \r",
+							"// Define the API endpoint for user registration\r",
+							"const apiUrl = pm.collectionVariables.get('baseUrl') + '/register'; // Use collection variable for base URL\r",
+							"\r",
+							"// pm.sendRequest({\r",
+							"//     url: apiUrl,\r",
+							"//     method: 'POST',\r",
+							"//     header: {\r",
+							"//         'Content-Type': 'application/json'\r",
+							"//     },\r",
+							"//     body: {\r",
+							"//         mode: 'raw',\r",
+							"//         raw: JSON.stringify(userData)\r",
+							"//     }\r",
+							"// }, function (err, res) {\r",
+							"//     if (err) {\r",
+							"//         console.log('err', err)\r",
+							"//     }\r",
+							"//     pm.collectionVariables.set('loginToken', res.json().token)\r",
+							"//     pm.globals.set('globalLoginToken', res.json().token)\r",
+							"// });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(201);\r",
+							"});\r",
+							"\r",
+							"// Save token to collection variable\r",
+							"const response = pm.response.json();\r",
+							"pm.collectionVariables.set(\"loginToken\", response.token);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"test4\",\r\n  \"lastName\": \"test4\",\r\n  \"userName\": \"player\",\r\n  \"email\": \"user4@example.com\",\r\n  \"mobile\": \"09430597874\",\r\n  \"type\": \"player\",\r\n  \"password\": \"testtest\",\r\n  \"ekycTransactionId\": \"testtest\",\r\n  \"permanentAddress\": \"testtest\",\r\n  \"currentAddress\": \"testtest\",\r\n  \"birthDate\": \"2025-09-02\",\r\n  \"birthPlace\": \"string\",\r\n  \"age\": 30,\r\n  \"nationality\": \"string\",\r\n  \"gamingSite\": \"string\",\r\n  \"natureOfWork\": \"string\",\r\n  \"sourceOfIncome\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/register",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(201);\r",
+							"});\r",
+							"\r",
+							"// Save token to collection variable\r",
+							"const response = pm.response.json();\r",
+							"pm.collectionVariables.set(\"loginToken\", response.token);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userNameOrEmail\": \"loginuser7491\",\r\n    \"password\": \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reset-password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNhNDBhOWJkLTI5YTEtNGFhZC1iOTExLWYyZDYyY2IxZDlhNCIsInVzZXJOYW1lIjoiYWRtaW4xMjEyNCIsImVtYWlsIjoiYWRtaW4xMjEyNEBnbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJhZG1pbjEyMTI0IiwibGFzdE5hbWUiOiJhZG1pbjEyMTI0IiwibW9iaWxlIjoiMDk4NzY3ODkwMjQiLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE3NTQ2OTIwMjB9.-8Qxh87sx4bTo2RJ_g96aKywUKRB-piJ5qX82mrXysA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userNameOrEmail\": \"adminadmin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/users/reset-password",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"reset-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateAttendance",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"593f9945-29ab-475e-8a36-433115ed1a5f\",\n  \"userId\": \"593f9945-29ab-475e-8a36-433115ed1a5f\",\n  \"date\": \"2025-08-28\",\n  \"checkIn\": \"2025-08-28T09:00:00Z\",\n  \"checkOut\": \"2025-08-28T17:00:00Z\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/attendance",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"attendance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAttendance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/attendance",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"attendance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAttendanceByUserId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"user_Id\": \"d3a63d5a-7b7f-41f7-9e43-2c9a8bbf90c2\",\n  \"date\": \"2025-08-27\",\n  \"check_In\": \"2025-08-27T08:30:00Z\",\n  \"check_Out\": \"2025-08-27T17:00:00Z\"\n}\n"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/attendance/user/9f33e693-d6ef-443c-bc56-c30d40c37983",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"attendance",
+						"user",
+						"9f33e693-d6ef-443c-bc56-c30d40c37983"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateAttendance",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"status\": \"Rest Day\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/attendance/d98f75a0-f56a-4011-a5fa-696a1f9c10a5",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"attendance",
+						"d98f75a0-f56a-4011-a5fa-696a1f9c10a5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAttendance",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/attendance/9167d093-18b1-497f-8184-42cfe9598c17",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"attendance",
+						"9167d093-18b1-497f-8184-42cfe9598c17"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:8080",
+			"type": "default"
+		},
+		{
+			"key": "loginToken",
+			"value": "xxxx",
+			"type": "string"
+		},
+		{
+			"key": "regdata",
+			"value": ""
+		},
+		{
+			"key": "registerUser",
+			"value": ""
+		},
+		{
+			"key": "registerPass",
+			"value": ""
+		},
+		{
+			"key": "player1",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "player2",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "moderator",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "gm",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

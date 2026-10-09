@@ -1,0 +1,23 @@
+name: aggregator
+services:
+  aggregator_backend:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    networks:
+      - aggregator_network
+    volumes:
+      - ../.env:/app/.env
+      - ../seeders:/app/seeders
+    environment:
+      - TZ=Asia/Manila
+
+  aggregator_redis:
+    image: redis:latest
+    expose:
+      - 6379
+    command: redis-server --appendonly yes
+    networks:
+      - aggregator_network
+    environment:
+      - TZ=Asia/Manila
